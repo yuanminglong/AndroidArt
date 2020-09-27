@@ -1,0 +1,2 @@
+include ':app', ':kotlinproject'
+rootProject.name='AndroidArt'

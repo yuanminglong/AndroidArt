@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_navigation"
+    android:label="First"
+    app:startDestination="@id/navigationFragment2">
+
+    <fragment
+        android:id="@+id/navigationFragment2"
+        android:name="com.yuan.androidart.ui.fragments.NavigationFragment2"
+        android:label="found"
+        tools:layout="@layout/navigation_fragment2_fragment">
+        <argument
+            android:name="args"
+            android:defaultValue="@null"
+            app:argType="com.yuan.androidart.data.User"
+            app:nullable="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigationFragment1"
+        android:name="com.yuan.androidart.ui.fragments.NavigationFragment1"
+        android:label="home"
+        tools:layout="@layout/navigation_fragment1_fragment">
+        <deepLink
+            android:id="@+id/deepLink2"
+            app:uri="http://www.yuan.com" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigationFragment3"
+        android:name="com.yuan.androidart.ui.fragments.NavigationFragment3"
+        android:label="setting"
+        tools:layout="@layout/fragment_navigation3" />
+</navigation>
