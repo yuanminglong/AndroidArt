@@ -5,41 +5,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.OkhttpActivity">
+    tools:context=".ui.RxJavaActivity">
 
   <Button
-      android:id="@+id/btn_clean"
+      android:id="@+id/btn_send_event"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
-      android:text="clean"
-      app:layout_constraintStart_toEndOf="@+id/btn_post"
-      app:layout_constraintTop_toTopOf="parent" />
-
-  <Button
-      android:id="@+id/btn_post"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="post"
-      app:layout_constraintStart_toEndOf="@+id/bt_get"
-      app:layout_constraintTop_toTopOf="parent" />
-
-  <Button
-      android:id="@+id/bt_get"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="get请求"
+      android:text="发送事件"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent" />
 
   <TextView
-      android:id="@+id/tv_content"
+      android:id="@+id/tv_contents"
       android:layout_width="0dp"
       android:layout_height="0dp"
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintHorizontal_bias="1.0"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/bt_get"
+      app:layout_constraintTop_toBottomOf="@+id/btn_send_event"
       app:layout_constraintVertical_bias="0.0"
       tools:text="content" />
 </androidx.constraintlayout.widget.ConstraintLayout>

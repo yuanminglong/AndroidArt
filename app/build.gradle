@@ -28,7 +28,12 @@ android {
 }
 
 dependencies {
+    implementation 'io.reactivex.rxjava3:rxjava:3.0.0'
 
+
+    def retrofit_version = "2.3.0"
+    //implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+    implementation("com.squareup.okhttp3:okhttp:3.8.0")
     def room_version = "2.3.0-alpha02"
     implementation "androidx.room:room-runtime:$room_version"
     annotationProcessor "androidx.room:room-compiler:$room_version"
