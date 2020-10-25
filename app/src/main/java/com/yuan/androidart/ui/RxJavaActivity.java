@@ -1,12 +1,18 @@
 package com.yuan.androidart.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.ActivityManager;
+import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.os.MessageQueue;
 import android.os.SystemClock;
+import android.util.Log;
 import android.view.View;
 
 import com.yuan.androidart.R;
@@ -20,12 +26,16 @@ import io.reactivex.rxjava3.disposables.Disposable;
 public class RxJavaActivity extends AppCompatActivity {
     ActivityRxJavaBinding binding;
     Observer observer;
+    Handler handler;
+    Looper looper;
+    private static String TAG = RxJavaActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
          binding = ActivityRxJavaBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        ActivityManager a = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         observer = new Observer<String>() {
             @Override
             public void onSubscribe(@NonNull Disposable d) {
@@ -51,40 +61,7 @@ public class RxJavaActivity extends AppCompatActivity {
             }
         };
 
-        Thread thread = new Thread(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        Looper.prepare();
-                        Handler handler = new Handler(Looper.myLooper());
-                        Looper.loop();
-                        Looper looper= Looper.myLooper();
 
-
-
-                        MessageQueue messageQueue = looper.getQueue();
-
-
-                        handler.sendEmptyMessage(Message.obtain().what=0);
-                        Message message = Message.obtain();
-
-                        handler.post(new Runnable() {
-                            @Override
-                            public void run() {
-
-                            }
-                        });
-                        Looper.myLooper().quit();
-                        Looper.myQueue().addIdleHandler(new MessageQueue.IdleHandler() {
-                            @Override
-                            public boolean queueIdle() {
-                                return false;
-                            }
-                        });
-
-                    }
-                }
-        );
     }
 
     @Override
@@ -93,12 +70,29 @@ public class RxJavaActivity extends AppCompatActivity {
         binding.btnSendEvent.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Observable<String> observable =  Observable.fromArray("12345","123454567");
-                //observable.subscribe(observer);
-                String time = String.valueOf(SystemClock.uptimeMillis()/(3600*1000));
-                binding.tvContents.setText(time);
-
+                getPackageManager();
             }
         });
+
+    }
+
+    public class  MyTask extends  AsyncTask<String, String ,String >{
+
+        @Override
+        protected String doInBackground(String... strings) {
+            publishProgress();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+
+        }
+
+        @Override
+        protected void onProgressUpdate(String... values) {
+            super.onProgressUpdate(values);
+        }
     }
 }

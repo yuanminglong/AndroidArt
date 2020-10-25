@@ -32,7 +32,7 @@ public class FirstCustomView extends View implements GestureDetector.OnGestureLi
     Path mPath;
     VelocityTracker velocityTracker ;
 
-    private static final String TEXT = "ap爱哥ξτβбпшㄎㄊěǔぬも┰┠№＠↓";
+    private static final String TEXT = "ap爱哥ξτβбпшㄎㄊěǔぬも┰┠№＠↓p爱哥ξτβбпшㄎㄊěǔぬも┰┠№＠↓p爱哥ξτβбпшㄎㄊěǔぬも┰┠№＠↓p爱哥ξτβбпшㄎㄊěǔぬも┰┠№＠↓p爱哥ξτβбпшㄎㄊěǔぬも┰┠№＠↓p爱哥ξτβбпшㄎㄊěǔぬも┰┠№＠↓p爱哥ξτβбпшㄎㄊěǔぬも┰┠№＠↓p爱哥ξτβбпшㄎㄊěǔぬも┰┠№＠↓p爱哥ξτβбпшㄎㄊěǔぬも┰┠№＠↓p爱哥ξτβбпшㄎㄊěǔぬも┰┠№＠↓p爱哥ξτβбпшㄎㄊěǔぬも┰┠№＠↓p爱哥ξτβбпшㄎㄊěǔぬも┰┠№＠↓";
     public FirstCustomView(Context context) {
         super(context);
         inintPaint();
