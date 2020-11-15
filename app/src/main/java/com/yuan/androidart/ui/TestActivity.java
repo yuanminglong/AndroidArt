@@ -14,15 +14,7 @@ public class TestActivity  extends AppCompatActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
-        DataCenter.init(this, false);
-        DataCenter.register(new DataCenter.OnMessageChangeListener() {
-            @Override
-            public void onMessageChange(Message message) {
 
-
-
-            }
-        });
 
     }
 }

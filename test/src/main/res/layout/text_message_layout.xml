@@ -4,12 +4,12 @@
     android:layout_height="wrap_content"
     android:gravity="right">
     <View
-        android:layout_weight="2"
+        android:layout_weight="1"
         android:layout_width="0dp"
         android:layout_height="0dp"/>
 
     <TextView
-        android:layout_weight="1"
+        android:layout_weight="0"
         android:layout_gravity="right"
         android:text="12333"
         android:id="@+id/tv_content"

@@ -18,24 +18,38 @@ import android.view.View;
 import com.yuan.androidart.R;
 import com.yuan.androidart.databinding.ActivityRxJavaBinding;
 
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.annotations.NonNull;
+import io.reactivex.rxjava3.core.BackpressureStrategy;
+import io.reactivex.rxjava3.core.Flowable;
+import io.reactivex.rxjava3.core.FlowableEmitter;
+import io.reactivex.rxjava3.core.FlowableOnSubscribe;
 import io.reactivex.rxjava3.core.Observable;
+import io.reactivex.rxjava3.core.ObservableEmitter;
+import io.reactivex.rxjava3.core.ObservableOnSubscribe;
 import io.reactivex.rxjava3.core.Observer;
+import io.reactivex.rxjava3.core.Scheduler;
 import io.reactivex.rxjava3.disposables.Disposable;
+import io.reactivex.rxjava3.functions.Consumer;
+import io.reactivex.rxjava3.schedulers.Schedulers;
 
 public class RxJavaActivity extends AppCompatActivity {
     ActivityRxJavaBinding binding;
     Observer observer;
-    Handler handler;
-    Looper looper;
     private static String TAG = RxJavaActivity.class.getSimpleName();
+    Observable <String> observable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
          binding = ActivityRxJavaBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        ActivityManager a = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
+        Flowable flowable = Flowable.create(new FlowableOnSubscribe<String>() {
+            @Override
+            public void subscribe(@NonNull FlowableEmitter<String> emitter) throws Throwable {
+
+            }
+        }, BackpressureStrategy.BUFFER).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread());
         observer = new Observer<String>() {
             @Override
             public void onSubscribe(@NonNull Disposable d) {
@@ -61,38 +75,23 @@ public class RxJavaActivity extends AppCompatActivity {
             }
         };
 
+        observable = Observable.create(emitter -> {
+            for (int i = 0; i<10;i++){
+                emitter.onNext("this is a default message");
+            }
+        });
+
 
     }
 
     @Override
     protected void onStart() {
         super.onStart();
-        binding.btnSendEvent.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getPackageManager();
-            }
-        });
+        binding.btnSendEvent.setOnClickListener(v -> {
+                observable.subscribe(observer);
+         }
+        );
 
     }
 
-    public class  MyTask extends  AsyncTask<String, String ,String >{
-
-        @Override
-        protected String doInBackground(String... strings) {
-            publishProgress();
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-
-        }
-
-        @Override
-        protected void onProgressUpdate(String... values) {
-            super.onProgressUpdate(values);
-        }
-    }
 }

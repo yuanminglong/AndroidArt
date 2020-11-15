@@ -63,5 +63,4 @@ public class NavigationActivity extends AppCompatActivity {
         return super.onCreateOptionsMenu(menu);
     }
 
-
 }

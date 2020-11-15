@@ -33,13 +33,14 @@ package="com.yuan.androidart">
     <activity android:name=".ui.DataBindingActivity" />
     <activity android:name=".ui.ViewBindingActivity" />
     <activity
+        android:exported="true"
         android:name=".ui.FragmentActivity"
         android:label="@string/title_activity_fregment"
         android:theme="@style/AppTheme.NoActionBar" />
     <activity
         android:name=".ui.MainActivity"
         android:theme="@style/AppTheme.NoActionBar">
-<!--        <intent-filter>
+        <!--        <intent-filter>
             <action android:name="android.intent.action.MAIN" />
 
             <category android:name="android.intent.category.LAUNCHER" />
@@ -49,6 +50,21 @@ package="com.yuan.androidart">
     <activity android:name=".ui.CustomViewActivity" />
     <activity android:name="com.yuan.androidart.ui.OkhttpActivity"></activity>
     <activity android:name="com.yuan.androidart.ui.RxJavaActivity">
+
+    </activity>
+    <activity android:name="com.yuan.androidart.ui.startmode.StandMode"
+        android:launchMode="standard">
+    </activity>
+    <activity android:name="com.yuan.androidart.ui.startmode.SingleInstanceMode"
+        android:launchMode="singleInstance"></activity>
+    <activity android:name="com.yuan.androidart.ui.startmode.SingleTopMode"
+        android:launchMode="singleTop"></activity>
+    <activity android:name="com.yuan.androidart.ui.startmode.SingleTaskMode"
+        android:launchMode="singleTask"></activity>
+    <activity android:name="com.yuan.androidart.inflator.InflatorTestActivity" android:label="Inflate">
+
+    </activity>
+    <activity android:name="com.yuan.androidart.permission.PermissionTestActivity" android:label="Inflate">
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
             <category android:name="android.intent.category.LAUNCHER" />
