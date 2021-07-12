@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import androidx.core.R
 import com.yuan.kotlinproject.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -13,16 +12,13 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
        activityMainBinding =  ActivityMainBinding.inflate(layoutInflater);
         activityMainBinding.name.setTextColor(Color.RED)
         activityMainBinding.button.setOnClickListener(View.OnClickListener { Log.d("Main","shou")})
         setContentView(activityMainBinding.root)
 
     }
-
     override fun onStop() {
         super.onStop()
     }
-
 }

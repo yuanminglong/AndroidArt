@@ -1,7 +1,8 @@
 package com.yuan.androidart.view;
 
-import android.app.Activity;
+
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
@@ -10,6 +11,7 @@ import android.graphics.Path;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.graphics.Xfermode;
+import android.graphics.drawable.Drawable;
 import android.icu.util.MeasureUnit;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -21,6 +23,9 @@ import android.view.ViewConfiguration;
 import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
+
+import com.yuan.androidart.R;
+
 
 public class FirstCustomView extends View implements GestureDetector.OnGestureListener, GestureDetector.OnDoubleTapListener {
     private static String TAG = FirstCustomView.class.getSimpleName();
@@ -46,6 +51,7 @@ public class FirstCustomView extends View implements GestureDetector.OnGestureLi
     public FirstCustomView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         inintPaint();
+        TypedArray typedArray = context.obtainStyledAttributes(R.styleable.MyTextView);
     }
 
     private void inintPaint(){

@@ -12,6 +12,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.yuan.androidart.R;
 
 import java.util.List;
@@ -28,10 +29,13 @@ public class InflatorTestActivity extends AppCompatActivity implements View.OnCl
         container = findViewById(R.id.container);
         inflate = findViewById(R.id.btn_inflate);
         inflate.setOnClickListener(v->{
-           View view  =  getLayoutInflater().inflate(R.layout.activity_room,container,true);
-           container.addView(view);
+/*           View view  =  getLayoutInflater().inflate(R.layout.activity_room,null,true);
+           container.addView(view);*/
+        View view = getLayoutInflater().inflate(R.layout.snackbar_container,findViewById(R.id.snackbar_container));
+            Snackbar snackbar = Snackbar.make(getWindow().getDecorView(),"测试专用",Snackbar.LENGTH_LONG);
+            
+            snackbar.show();
         });
-
     }
 
 
@@ -81,5 +85,7 @@ public class InflatorTestActivity extends AppCompatActivity implements View.OnCl
         //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
+
+
 
 }
