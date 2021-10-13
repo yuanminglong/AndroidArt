@@ -47,10 +47,8 @@ public class MainActivity extends AppCompatActivity {
                 mItems.add(new ActivityBean(RooMActivity.class,"Room"));
                 mItems.add(new ActivityBean(CustomViewActivity.class,"自定义View"));
                 mItems.add(new ActivityBean(OkhttpActivity.class,"Okhttp"));
-
                 mRecyclerAdapter.notifyItemChanged(mItems);
                 mSwipeRefresh.setRefreshing(false);
-
             }
         });
         mRecyclerView = findViewById(R.id.recyclerView_main);

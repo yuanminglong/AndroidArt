@@ -16,4 +16,9 @@
         <attr name="stepsNumberSize" format="dimension" />
         <attr name="barWidth" format="dimension" />
     </declare-styleable>
+
+    <declare-styleable name="DragableView">
+        <attr name="drag_able" format="boolean"/>
+    </declare-styleable>
+
 </resources>
