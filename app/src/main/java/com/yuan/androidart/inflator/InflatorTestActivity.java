@@ -2,9 +2,11 @@ package com.yuan.androidart.inflator;
 
 import android.app.ActivityManager;
 import android.content.ComponentName;
+import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.ParcelFileDescriptor;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.google.android.material.snackbar.Snackbar;
 import com.yuan.androidart.R;
 
+import java.io.FileInputStream;
+import java.io.InputStream;
 import java.util.List;
 
 public class InflatorTestActivity extends AppCompatActivity implements View.OnClickListener {
@@ -85,7 +89,4 @@ public class InflatorTestActivity extends AppCompatActivity implements View.OnCl
         //intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }
-
-
-
 }
